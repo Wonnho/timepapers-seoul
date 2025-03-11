@@ -39,7 +39,8 @@ services:
         - type=local,dest=/tmp/.build-cache/api,mode=max
       cache_from:
         - type=local,src=/tmp/.build-cache/api
-    image: yejinoh58/timepaper-api-image:latest
+
+    image: ${DOCKER_REGISTRY}/timepaper-api-image:latest
     env_file:
       - .env
     networks:
@@ -63,7 +64,8 @@ services:
         - type=local,src=/tmp/.build-cache/client
       args:
         VITE_API_URL: ${VITE_API_URL}
-    image: yejinoh58/timepaper-client-image:latest
+
+    image: ${DOCKER_REGISTRY}/timepaper-client-image:latest
     env_file:
       - .env
     environment:
